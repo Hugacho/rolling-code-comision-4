@@ -22,7 +22,7 @@ for(let i = 0; i < cantidad; i++) {
     }
 }
 
-console.log(family);
+//console.log(family);
 
 
 //console.log(alumns);
