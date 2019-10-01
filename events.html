@@ -7,6 +7,19 @@
     <title>Events</title>
 </head>
 <body>
+
+    <button onclick="mostrarAlert();">Mostrar alert</button>
+
+    <input
+        id="my-input"
+        type="text"
+        onfocus="doFocus();"
+        onblur="doBlur();"
+        oninput="doInput();"
+        style="border: 1px solid black"
+    />
+    <p id="my-error" style="color: red; font-size: 9px; margin: 0; padding: 0; display: none;">El campo es obligatorio</p>
+
     <input
         id="text"
         type="text"
@@ -15,6 +28,7 @@
         oninput="fnInput();"
         style="border: 1px solid grey"
     />
+
     <h6 id="error" style="color: red; display: none;">Este campo no esta completado</h6>
     <p id="result"></p>
     <button onclick="runAlert();">Click acá</button>
