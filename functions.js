@@ -32,7 +32,7 @@ const r4 = sum('hola', 'mundo');
 /*
 PEDIR TRES VALORES POR PANTALLA: TIPO DE OPERACIón (SUMA, RESTA, DIVBISI´ON, MULTIPLICACIÓN), PRIMER VALOR A OPERAR Y SEGUNDO VALOR A OPERAR. CON UN SWITCH EVALUAR EL TIPO DE OPERACION.
 */
-
+/*
 const operacion = prompt('Que tipo de operacion desea realizar?');
 const v1 = prompt('Ingrese primer valor');
 const v2 = prompt('Ingrese segundo valor');
@@ -52,4 +52,50 @@ switch (operacion) {
         break;
 }
 
-alert(result);
+// alert(result);
+*/
+
+// Module
+const myModule = (function () {
+    myFunction1 = () => {
+        console.log('Hello World');
+    }
+    myFunction2 = () => {
+        console.log('Hello World');
+    }
+    return {
+        myFunction1: myFunction1
+    }
+}());
+
+myModule.myFunction1();
+
+// Literals
+const calculator = {
+    suma: (a, b) => {
+        return a+ b;
+    },
+    resta: (a, b) => {
+        return a - b;
+    },
+    multiplicacion: (a, b) => {
+        return a * b;
+    },
+    crazyMethod: n => {
+        console.log(calculator.resta);
+    }
+}
+const resSum = calculator.suma(1, 5);
+const crazyResult = calculator.crazyMethod(6);
+console.log(resSum, crazyResult);
+
+
+const test = (callback) => {
+    // json
+    callback(4);
+}
+
+test((n) => {
+    console.log('Soy el callback!!!', n);
+});
+
