@@ -1,50 +1,64 @@
-// Sin promesa
-const data = () => {
+const timer = () => {
     let i = 0;
     setTimeout(() => {
         i = 5;
-        // console.log(i);
-    }, 2000);
+    }, 100); // milisegundos
     return i;
 }
 
-const r = data();
-
-console.log(r);
-
-// Con promesas
+const t = timer();
+// console.log(t);
 
 const p = new Promise((resolve, reject) => {
-    resolve();
+    const j = true;
+    if (j) {
+        resolve(':)');
+    } else {
+        reject(':(');
+    }
 });
-// console.log(p);
 
-// Timer
-const timer = () => {
-    return new Promise((resolve, reject) => {
-        let k = 0;
-        setTimeout(() => {
-            k = 5;
-            resolve(k);
-        }, 2000);
-    });
-}
+// Muchas líneas de código blablabla ... 
 
-const t = timer();
-t.then(k => {
-    console.log('Promesa resuelta', k);
+p.then(response => {
+    // console.log(response);
 }).catch(error => {
-    console.log('Error en promesa', error);
+    console.log(error);
 });
 
-//
-const d = window.fetch('https://jsonplaceholder.typicode.com/comments');
-console.log(d);
+// Ejemplo con promesas
 
-d.then(response => {
-    const info = response.json();
-    info.then(comments => {
-        console.log(comments);
+const timer2 = () => {
+    let i = 0;
+    const r = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            i = 5;
+            resolve(i);
+        }, 3000);
     });
-    console.log(info);
+    return r;
+}
+const t2 = timer2();
+t2.then(x => {
+    console.log(x);
+});
+
+// Ejemplo
+const request = window.fetch('https://jsonplaceholder.typicode.com/comments');
+
+request.then(response => {
+    const data = response.json();
+    data.then(comments => {
+        // console.log(comments);
+    });
+});
+
+const imgResquest = window.fetch('https://i1.wp.com/www.sopitas.com/wp-content/uploads/2018/12/reino-unido-venta-cachorros-perros-gatos-tiendas-lucy-law.jpg');
+imgResquest.then(response => {
+    const b = response.blob();
+    b.then(d => {
+        const o = window.URL.createObjectURL(d);
+        console.log(o);
+        document.getElementById('img').src = o;
+    });
 });
