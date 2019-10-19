@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detail</title>
+</head>
+<body>
+    <div id="user"></div>
+    <script type="text/javascript">
+    const id = window.location.hash.substring(1);
+    const request = fetch(`http://jsonplaceholder.typicode.com/users/${id}`);
+    request.then(response => {
+        response.json().then(user => {
+            createDocument(user);
+        })
+    });
+
+    const createDocument = (user) => {
+        const renderUser = document.getElementById('user');
+        const title = document.createElement('h1');
+        title.innerText = user.name;
+        const subtitle = document.createElement('h2');
+        subtitle.innerText = user.phone;
+        const d = document.createElement('div');
+        d.innerHTML = `
+            <p>${user.email}</p>
+            <p><a href='index.html'>Volver</a></p>
+        `;
+        renderUser.appendChild(title);
+        renderUser.appendChild(subtitle);
+        renderUser.appendChild(d);
+    }
+    </script>
+</body>
+</html>
